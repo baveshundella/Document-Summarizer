@@ -1,0 +1,229 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f7f7f7 100%);
+  color: #222;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.dark {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #eee;
+}
+.app-bg-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Removed animated-bg-icons icon size, filter, and animation keyframes as requested */
+.container {
+  min-width: 350px;
+  max-width: 500px;
+  margin: auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  /* Animation */
+  animation: fadeInUp 0.8s cubic-bezier(.23,1.01,.32,1) 0.1s both;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body.dark .container {
+  background: rgba(35,37,38,0.95);
+}
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+  /* Animation */
+  animation: fadeIn 1.2s cubic-bezier(.23,1.01,.32,1) 0.2s both;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+input[type="file"] {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f3f4f6;
+  color: #222;
+  width: 100%;
+  /* Animation */
+  animation: fadeIn 1.2s cubic-bezier(.23,1.01,.32,1) 0.3s both;
+}
+input[type="file"]::file-selector-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+input[type="file"]::file-selector-button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+.summary-container {
+  margin-top: 2rem;
+  width: 100%;
+  /* Animation */
+  animation: fadeInUp 1s cubic-bezier(.23,1.01,.32,1) 0.4s both;
+}
+pre {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  /* Animation */
+  animation: fadeInUp 1.1s cubic-bezier(.23,1.01,.32,1) 0.5s both;
+}
+body.dark pre {
+  background: #222;
+}
+button {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0001;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  /* Animation */
+  animation: fadeIn 1.2s cubic-bezier(.23,1.01,.32,1) 0.25s both;
+}
+button:hover {
+  background: #0056b3;
+  box-shadow: 0 4px 16px #0002;
+  transform: scale(1.06);
+}
+.bg-blobs {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.45;
+  animation: blobMove 18s ease-in-out infinite alternate;
+  mix-blend-mode: lighten;
+}
+
+.blob1 {
+  width: 420px; height: 420px;
+  background: linear-gradient(135deg, #a5b4fc 0%, #f472b6 100%);
+  top: 5vh; left: 10vw;
+  animation-delay: 0s;
+}
+.blob2 {
+  width: 340px; height: 340px;
+  background: linear-gradient(135deg, #fbbf24 0%, #34d399 100%);
+  top: 60vh; left: 60vw;
+  animation-delay: 4s;
+}
+.blob3 {
+  width: 300px; height: 300px;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  top: 40vh; left: 70vw;
+  animation-delay: 8s;
+}
+
+@keyframes blobMove {
+  0%   { transform: scale(1) translateY(0) translateX(0);}
+  50%  { transform: scale(1.15) translateY(-40px) translateX(40px);}
+  100% { transform: scale(1) translateY(0) translateX(0);}
+}
+.ghibli-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ghibli-bg .cloud {
+  position: absolute;
+  animation: cloudFloat 32s linear infinite alternate;
+}
+.ghibli-bg .cloud1 {
+  top: 6vh; left: 8vw; width: 200px; height: 60px;
+  animation-delay: 0s;
+}
+.ghibli-bg .cloud2 {
+  top: 18vh; left: 60vw; width: 120px; height: 40px;
+  animation-delay: 8s;
+}
+@keyframes cloudFloat {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(40px); }
+}
+
+.ghibli-bg .hill {
+  position: absolute;
+  bottom: 0; left: 0; width: 100vw; height: 120px;
+  z-index: 0;
+  opacity: 0.7;
+  animation: hillWave 18s ease-in-out infinite alternate;
+}
+@keyframes hillWave {
+  0% { transform: scaleX(1) translateY(0);}
+  100% { transform: scaleX(1.04) translateY(8px);}
+}
+@media (max-width: 600px) {
+  .container {
+    min-width: 0;
+    width: 98vw;
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  pre {
+    font-size: 0.95rem;
+  }
+}
