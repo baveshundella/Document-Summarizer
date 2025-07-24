@@ -6,4 +6,4 @@ python-docx
 openai
 pydantic
 python-dotenv
-google-generativeai
+requests
